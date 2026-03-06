@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
-import { DitherEffect } from '@/components/shaders/dither-effect'
 import VinylPlayer from '@/components/home/VinylPlayer'
 
 const footerSectionReveal = {
@@ -48,26 +47,19 @@ export default function Footer() {
   const motionConfig = prefersReducedMotion ? footerMotionReduced : footerMotionFull
 
   return (
-    <section className="relative w-full h-full bg-bg-dark overflow-hidden">
+    <section
+      className="relative w-full h-full overflow-hidden"
+      style={{
+        backgroundImage: "url('/footer-bg.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
 
-      <DitherEffect
-        src="/footer-bg.jpeg"
-        alt=""
-        darkColor="#1e3a2f"
-        lightColor="#e8e0d0"
-        waveColor="#1e3a2f"
-        waveShape="warp"
-        waveSpeed={0.3}
-        waveOpacity={0.3}
-        dotSize={5.0}
-        halftoneStrength={0.7}
-        brushSize={180}
-        trailFade={0.97}
-        hoverReveal={true}
-        className="absolute inset-0 z-0"
-      />
+      {/* ── Dark overlay ── */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-bg-dark/70 via-bg-dark/20 to-bg-dark/30 pointer-events-none" />
 
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-bg-dark/70 via-bg-dark/20 to-bg-dark/30" />
 
       <motion.div
         variants={footerSectionReveal}

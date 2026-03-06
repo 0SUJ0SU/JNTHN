@@ -36,6 +36,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" as="image" href="/hero-bg.jpeg" />
+      </head>
       <body
         className={`${displayFont.variable} ${monoFont.variable} ${serifFont.variable}`}
       >

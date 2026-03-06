@@ -41,12 +41,6 @@ const navOverlaySlide = {
   },
 }
 
-const navOverlayFade = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { opacity: 0 },
-}
-
 const overlayLinksContainer = {
   hidden: {},
   visible: {
@@ -65,7 +59,6 @@ const overlayLinkReveal = {
 
 export default function Nav() {
   const prefersReducedMotion = useReducedMotion()
-  const [isScrolledPast, setIsScrolledPast] = useState(false)
   const [navVisible, setNavVisible] = useState(true)
   const [overlayOpen, setOverlayOpen] = useState(false)
 
@@ -75,10 +68,7 @@ export default function Nav() {
     const onScroll = () => {
       const currentScrollY = window.scrollY
       const scrollingDown = currentScrollY > previousScrollY
-
-      setIsScrolledPast(currentScrollY > 80)
       setNavVisible(currentScrollY < 10 || !scrollingDown)
-
       previousScrollY = currentScrollY
     }
 
@@ -92,18 +82,16 @@ export default function Nav() {
   }, [overlayOpen])
 
   const entranceInitial = prefersReducedMotion ? "visible" : "hidden"
-  const overlayVariants = prefersReducedMotion ? navOverlayFade : navOverlaySlide
+  const overlayVariants = prefersReducedMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1 }, exit: { opacity: 0 } }
+    : navOverlaySlide
 
   return (
     <>
       <motion.nav
         animate={{ y: navVisible || overlayOpen ? 0 : "-100%" }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 ${
-          isScrolledPast && !overlayOpen
-            ? "bg-bg-dark/90 backdrop-blur-sm border-b border-cream/[0.06]"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <div className="flex items-center justify-between px-8 md:px-12 py-5">
           <motion.div

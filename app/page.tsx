@@ -1,9 +1,11 @@
-import Footer from '@/components/layout/Footer'
+import Hero from "@/components/home/Hero"
+import Footer from "@/components/layout/Footer"
 
 export default function HomePage() {
   return (
     <main>
-      <div className="p-3 bg-cream h-screen">
+      <Hero />
+      <div className="bg-cream" style={{ padding: '12px', height: '100vh', boxSizing: 'border-box' }}>
         <Footer />
       </div>
     </main>
