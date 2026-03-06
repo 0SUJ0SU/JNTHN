@@ -57,6 +57,12 @@ const overlayLinkReveal = {
   },
 }
 
+const navOverlayFade = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+}
+
 export default function Nav() {
   const prefersReducedMotion = useReducedMotion()
   const [isScrolledPast, setIsScrolledPast] = useState(false)
@@ -74,9 +80,7 @@ export default function Nav() {
   }, [overlayOpen])
 
   const entranceInitial = prefersReducedMotion ? "visible" : "hidden"
-  const overlayVariants = prefersReducedMotion
-    ? { hidden: { opacity: 0 }, visible: { opacity: 1 }, exit: { opacity: 0 } }
-    : navOverlaySlide
+  const overlayVariants = prefersReducedMotion ? navOverlayFade : navOverlaySlide
 
   return (
     <>
