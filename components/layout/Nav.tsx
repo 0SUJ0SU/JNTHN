@@ -4,16 +4,12 @@ import Link from "next/link"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { useState, useEffect } from "react"
 
-// ─── Data ─────────────────────────────────────────────────────
-
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
   { label: "WORK", href: "/work" },
   { label: "SIDE", href: "/side" },
   { label: "BLOG", href: "/blog" },
 ] as const
-
-// ─── Animation Variants ───────────────────────────────────────
 
 const markReveal = {
   hidden: { opacity: 0, y: 10 },
@@ -61,8 +57,6 @@ const overlayLinkReveal = {
   },
 }
 
-// ─── Component ────────────────────────────────────────────────
-
 export default function Nav() {
   const prefersReducedMotion = useReducedMotion()
   const [isScrolledPast, setIsScrolledPast] = useState(false)
@@ -94,8 +88,6 @@ export default function Nav() {
         }`}
       >
         <div className="flex items-center justify-between px-8 md:px-12 py-5">
-
-          {/* ── JNTHN Mark ── */}
           <motion.div
             variants={markReveal}
             initial={entranceInitial}
@@ -110,7 +102,6 @@ export default function Nav() {
             </Link>
           </motion.div>
 
-          {/* ── MENU toggle ── */}
           <motion.button
             variants={menuButtonReveal}
             initial={entranceInitial}
@@ -121,11 +112,9 @@ export default function Nav() {
           >
             {overlayOpen ? "CLOSE" : "MENU"}
           </motion.button>
-
         </div>
       </nav>
 
-      {/* ── Full-screen Overlay ── */}
       <AnimatePresence>
         {overlayOpen && (
           <motion.div

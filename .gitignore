@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# editor — local IDE config should not be shared
+# editor local IDE config should not be shared
 .vscode/
 .idea/
 *.suo
