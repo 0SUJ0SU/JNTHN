@@ -41,6 +41,12 @@ const navOverlaySlide = {
   },
 }
 
+const navOverlayFade = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+}
+
 const overlayLinksContainer = {
   hidden: {},
   visible: {
@@ -57,19 +63,25 @@ const overlayLinkReveal = {
   },
 }
 
-const navOverlayFade = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  exit: { opacity: 0 },
-}
-
 export default function Nav() {
   const prefersReducedMotion = useReducedMotion()
   const [isScrolledPast, setIsScrolledPast] = useState(false)
+  const [navVisible, setNavVisible] = useState(true)
   const [overlayOpen, setOverlayOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setIsScrolledPast(window.scrollY > 80)
+    let previousScrollY = window.scrollY
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY
+      const scrollingDown = currentScrollY > previousScrollY
+
+      setIsScrolledPast(currentScrollY > 80)
+      setNavVisible(currentScrollY < 10 || !scrollingDown)
+
+      previousScrollY = currentScrollY
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
@@ -84,8 +96,10 @@ export default function Nav() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      <motion.nav
+        animate={{ y: navVisible || overlayOpen ? 0 : "-100%" }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 ${
           isScrolledPast && !overlayOpen
             ? "bg-bg-dark/90 backdrop-blur-sm border-b border-cream/[0.06]"
             : "bg-transparent"
@@ -117,7 +131,7 @@ export default function Nav() {
             {overlayOpen ? "CLOSE" : "MENU"}
           </motion.button>
         </div>
-      </nav>
+      </motion.nav>
 
       <AnimatePresence>
         {overlayOpen && (
