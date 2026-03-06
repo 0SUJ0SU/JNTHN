@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 200%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.045;
+  opacity: 0.12;
   mix-blend-mode: overlay;
   background-image: url('/grain.gif');
   background-repeat: repeat;
@@ -63,7 +63,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold);
 }
 
 .ruled {
