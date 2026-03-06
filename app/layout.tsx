@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Big_Shoulders_Display, Martian_Mono, Cormorant_Garamond } from "next/font/google";
+import Nav from "@/components/layout/Nav";
 import "./globals.css";
 
 const displayFont = Big_Shoulders_Display({
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${displayFont.variable} ${monoFont.variable} ${serifFont.variable}`}
       >
+        <Nav />
         <div className="grain" aria-hidden="true" />
         {children}
       </body>
