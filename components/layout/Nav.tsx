@@ -57,6 +57,22 @@ const overlayLinkReveal = {
   },
 }
 
+const menuButtonHover = {
+  rest: { backgroundColor: "var(--color-bg-dark)" },
+  hover: {
+    backgroundColor: "var(--color-gold)",
+    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const menuButtonTextHover = {
+  rest: { color: "var(--color-gold)" },
+  hover: {
+    color: "var(--color-bg-dark)",
+    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
 export default function Nav() {
   const prefersReducedMotion = useReducedMotion()
   const [navVisible, setNavVisible] = useState(true)
@@ -108,16 +124,28 @@ export default function Nav() {
             </Link>
           </motion.div>
 
-          <motion.button
+          <motion.div
             variants={menuButtonReveal}
             initial={entranceInitial}
             animate="visible"
-            onClick={() => setOverlayOpen((prev) => !prev)}
-            className="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-gold opacity-70 hover:opacity-100 transition-opacity duration-300"
-            aria-label={overlayOpen ? "Close navigation" : "Open navigation"}
           >
-            {overlayOpen ? "CLOSE" : "MENU"}
-          </motion.button>
+            <motion.button
+              variants={menuButtonHover}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              onClick={() => setOverlayOpen((prev) => !prev)}
+              className="px-4 py-2 flex items-center justify-center"
+              aria-label={overlayOpen ? "Close navigation" : "Open navigation"}
+            >
+              <motion.span
+                variants={menuButtonTextHover}
+                className="font-mono text-[0.65rem] tracking-[0.12em] uppercase"
+              >
+                {overlayOpen ? "CLOSE" : "MENU"}
+              </motion.span>
+            </motion.button>
+          </motion.div>
         </div>
       </motion.nav>
 
