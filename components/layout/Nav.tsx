@@ -16,7 +16,7 @@ const markReveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
@@ -25,7 +25,7 @@ const menuButtonReveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: 0.3 },
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 },
   },
 }
 
@@ -33,11 +33,11 @@ const navOverlaySlide = {
   hidden: { clipPath: "inset(0 0 100% 0)" },
   visible: {
     clipPath: "inset(0 0 0% 0)",
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
   },
   exit: {
     clipPath: "inset(0 0 100% 0)",
-    transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] },
+    transition: { duration: 0.5, ease: [0.65, 0, 0.35, 1] as const },
   },
 }
 
@@ -53,7 +53,7 @@ const overlayLinkReveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
@@ -61,7 +61,7 @@ const menuButtonHover = {
   rest: { backgroundColor: "var(--color-bg-dark)" },
   hover: {
     backgroundColor: "var(--color-gold)",
-    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
@@ -69,7 +69,7 @@ const menuButtonTextHover = {
   rest: { color: "var(--color-gold)" },
   hover: {
     color: "var(--color-bg-dark)",
-    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
@@ -100,13 +100,13 @@ export default function Nav() {
   const entranceInitial = prefersReducedMotion ? "visible" : "hidden"
   const overlayVariants = prefersReducedMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1 }, exit: { opacity: 0 } }
-    : navOverlaySlide
+    : (navOverlaySlide as import("framer-motion").Variants)
 
   return (
     <>
       <motion.nav
         animate={{ y: navVisible || overlayOpen ? 0 : "-100%" }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
         className="fixed top-0 left-0 right-0 z-50"
       >
         <div className="flex items-center justify-between px-8 md:px-12 py-5">
@@ -118,7 +118,7 @@ export default function Nav() {
             <Link
               href="/"
               onClick={() => setOverlayOpen(false)}
-              className="font-display text-cream text-2xl font-black uppercase tracking-tight leading-none hover:text-gold transition-colors duration-300"
+              className="font-display text-gold text-2xl font-black uppercase tracking-tight leading-none"
             >
               JNTHN
             </Link>
@@ -135,7 +135,7 @@ export default function Nav() {
               whileHover="hover"
               animate="rest"
               onClick={() => setOverlayOpen((prev) => !prev)}
-              className="px-4 py-2 flex items-center justify-center"
+              className="px-4 py-2"
               aria-label={overlayOpen ? "Close navigation" : "Open navigation"}
             >
               <motion.span
