@@ -14,7 +14,7 @@ const ALBUM_PEEK_X  = -20
 const ALBUM_OPEN_X  = -56
 
 const vinylSlideIn = {
-  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
 }
 
 export default function VinylPlayer() {
@@ -43,6 +43,7 @@ export default function VinylPlayer() {
       audioRef.current.pause()
       setPlayerState({ status: 'open', isPlaying: false })
     } else {
+      audioRef.current.volume = 0.3
       audioRef.current.play()
       setPlayerState({ status: 'open', isPlaying: true })
     }
