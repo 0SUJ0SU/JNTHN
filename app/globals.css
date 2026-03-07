@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 200%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.28;
+  opacity: 0.18;
   mix-blend-mode: soft-light;
   background-image: url('/grain.gif');
   background-repeat: repeat;
