@@ -104,7 +104,7 @@ export default function Footer() {
       <motion.div
         variants={footerSectionReveal}
         {...motionConfig}
-        className="absolute bottom-10 left-10 right-10 flex justify-between items-end z-30 pointer-events-none"
+        className="absolute bottom-6 left-10 right-10 flex justify-between items-end z-30 pointer-events-none"
       >
         <motion.a
           variants={footerItemFade}
@@ -118,10 +118,12 @@ export default function Footer() {
         </motion.a>
         <motion.a
           variants={footerItemFade}
-          href="mailto:jonathansugondo@gmail.com"
+          href="https://github.com/0SUJ0SU"
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-display text-cream text-lg md:text-2xl tracking-wide hover:text-gold transition-colors duration-300 inline-flex items-center gap-2 pointer-events-auto"
         >
-          <span>EMAIL</span>
+          <span>GITHUB</span>
           <span className="font-mono text-sm">→</span>
         </motion.a>
       </motion.div>
