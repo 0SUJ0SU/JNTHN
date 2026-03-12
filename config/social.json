@@ -1,0 +1,17 @@
+[
+  {
+    "platform": "github",
+    "url": "https://github.com/0SUJ0SU",
+    "label": "GitHub"
+  },
+  {
+    "platform": "linkedin",
+    "url": "https://linkedin.com/in/placeholder",
+    "label": "LinkedIn"
+  },
+  {
+    "platform": "email",
+    "url": "mailto:placeholder@example.com",
+    "label": "Email"
+  }
+]

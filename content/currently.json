@@ -1,0 +1,12 @@
+[
+  {
+    "type": "making",
+    "label": "This portfolio site",
+    "detail": "Designing and building JNTHN from scratch with Next.js and a lot of intention."
+  },
+  {
+    "type": "studying",
+    "label": "Advanced motion on the web",
+    "detail": "GSAP, Framer Motion, and the line between cinematic and annoying."
+  }
+]

@@ -1,0 +1,8 @@
+[
+  { "label": "DEVELOP FOR MOBILE", "order": 1 },
+  { "label": "CRAFT FOR THE WEB", "order": 2 },
+  { "label": "WORK WITH DATA", "order": 3 },
+  { "label": "THINK ABOUT PEOPLE", "order": 4 },
+  { "label": "LEAD WITH CLARITY", "order": 5 },
+  { "label": "BUILD WITH PURPOSE", "order": 6 }
+]
