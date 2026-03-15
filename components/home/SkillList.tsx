@@ -18,14 +18,14 @@ const skillItemReveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] as const },
   },
 }
 
 const liftedState = { opacity: 1, y: -5 }
 const dimmedState = { opacity: 0.2, y: 0 }
 const restingState = { opacity: 1, y: 0 }
-const hoverTransition = { duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }
+const hoverTransition = { duration: 0.22, ease: [0.25, 0.1, 0.25, 1] as const }
 
 export default function SkillList() {
   const prefersReducedMotion = useReducedMotion()
@@ -47,7 +47,7 @@ export default function SkillList() {
       >
         {sortedSkills.map((skill, index) => {
           const isHovered = hoveredIndex === index
-          const isDimmed = hoveredIndex !== null && !isHovered
+
 
           return (
             <motion.li
