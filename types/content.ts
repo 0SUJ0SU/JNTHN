@@ -20,7 +20,7 @@ interface SkillItem {
   order: number;
 }
 
-type CurrentlyType = "making" | "studying";
+type CurrentlyType = "making" | "studying" | "building";
 
 interface CurrentlyItem {
   type: CurrentlyType;

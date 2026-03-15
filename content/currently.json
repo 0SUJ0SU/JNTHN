@@ -1,12 +1,32 @@
 [
   {
-    "type": "making",
-    "label": "This portfolio site",
-    "detail": "Designing and building JNTHN from scratch with Next.js and a lot of intention."
+    "type": "building",
+    "label": "Productivity Timer",
+    "detail": "A focused deep work tool for better sessions"
+  },
+  {
+    "type": "building",
+    "label": "Media Converter",
+    "detail": "YouTube to MP3/MP4 — built from scratch"
+  },
+  {
+    "type": "building",
+    "label": "URL Shortener",
+    "detail": "Simple, fast, mine"
   },
   {
     "type": "studying",
-    "label": "Advanced motion on the web",
-    "detail": "GSAP, Framer Motion, and the line between cinematic and annoying."
+    "label": "Data Science",
+    "detail": "Analysis, visualization, making sense of noise"
+  },
+  {
+    "type": "studying",
+    "label": "AI & Deep Learning",
+    "detail": "ML, neural networks, the frontier"
+  },
+  {
+    "type": "studying",
+    "label": "DevOps & Backend",
+    "detail": "Infrastructure, pipelines, what holds it all up"
   }
 ]
