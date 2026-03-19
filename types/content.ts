@@ -2,8 +2,8 @@ interface ExperienceEntry {
   company: string;
   role: string;
   location: string;
-  startYear: number;
-  endYear: number | null;
+  startDate: string;
+  endDate: string | null;
   current: boolean;
   description: string;
 }

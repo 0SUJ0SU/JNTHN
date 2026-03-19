@@ -1,4 +1,5 @@
 import WorkHero from "@/components/work/WorkHero";
+import WorkExperience from "@/components/work/WorkExperience";
 
 export const metadata = {
   title: "Work — JNTHN",
@@ -10,6 +11,7 @@ export default function WorkPage() {
   return (
     <main id="main-content">
       <WorkHero />
+      <WorkExperience />
     </main>
   );
 }

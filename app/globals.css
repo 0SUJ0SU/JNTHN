@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar across all browsers */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

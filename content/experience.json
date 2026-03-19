@@ -1,11 +1,20 @@
 [
   {
-    "company": "GITS-ID",
-    "role": "Mobile Development Intern",
+    "company": "JDUACOMPUTER",
+    "role": "Full Stack Software Engineer",
     "location": "Jakarta",
-    "startYear": 2025,
-    "endYear": null,
+    "startDate": "2026-02",
+    "endDate": null,
     "current": true,
-    "description": "Building mobile experiences at scale for enterprise clients across Southeast Asia."
+    "description": "Built a desktop inventory and business management system for a tech retail shop in Jakarta. A localized Tauri deployment of Inventra with serial tracking, POS, warranty claims, and reporting."
+  },
+  {
+    "company": "GITS-ID",
+    "role": "Full Stack Software Engineer Intern",
+    "location": "Jakarta",
+    "startDate": "2025-11",
+    "endDate": "2026-02",
+    "current": false,
+    "description": "Shipped production features for Carte, a Warehouse Management System for PLN Kaltimra. Built across the full stack from React/Next.js on web to a complete Flutter mobile app, Golang/Gin APIs, and PostgreSQL."
   }
 ]
